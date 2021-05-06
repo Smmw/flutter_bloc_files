@@ -1,6 +1,6 @@
 # flutter_bloc_files
 
-### This is used to create **bloc** files for the [flutter_bloc package](https://pub.dev/packages/flutter_bloc)
+### This is used to create **bloc** files for the [flutter_bloc](https://pub.dev/packages/flutter_bloc) package
 
 ## Usage
 ### 1. export the script
