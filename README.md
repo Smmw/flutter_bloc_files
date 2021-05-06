@@ -16,10 +16,10 @@ flutter_bloc_files login_form
 #### 3. Command line parameters
 ```bash
 -f  | --force       Remove the existing floder and its contents
--a  | --all         Creat all files (bloc, event, states, barrel)
+-a  | --all         Creat all files (bloc, events, states, barrel)
 -bl | --bloc        Create bloc file
--e  | --event       Create event file
--s  | --state       Create stat file
+-e  | --event       Create events file
+-s  | --state       Create states file
 -ba | --barrel      Create barrel file
 ```
 
