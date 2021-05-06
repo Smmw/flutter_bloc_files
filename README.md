@@ -1,5 +1,6 @@
 # flutter_bloc_files
 
+### Flutter bloc files generator script
 ### This is used to create **bloc** files for the [flutter_bloc](https://pub.dev/packages/flutter_bloc) package
 
 ## Usage
