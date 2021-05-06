@@ -42,7 +42,7 @@ set -- "${POSITIONAL[@]}" # restore positional parameters
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[0;33m'
-NC='\033[0m' # No Color
+NC='\033[0m\n' # No Color
 
 blocName=$1
 
@@ -53,10 +53,10 @@ if [ -d "$filePath" ]; then
     rm -r $filePath
   else
     if [ "$FORCE" == "true" ]; then
-      echo "${RED}Force parameter is set, so removing the existing $filePath${NC}"
+      printf "${RED}Force parameter is set, so removing the existing $filePath${NC}"
       rm -r $filePath
     else
-      echo "${RED}The folder already exists, and has content, use -f or --force to override the content!${NC}"
+      printf "${RED}The folder already exists, and has content, use -f or --force to override the content!${NC}"
       exit
     fi
   fi
@@ -84,6 +84,7 @@ barrelFileName=$blocName"_barrel.dart"
 # State
 file=$filePath"/"$stateFileName
 initialStateClass=$classPrefix"InitialState"
+if [[ "$ALL" == "true" ||  "$STATES" == "true" ]]; then
 cat <<EOF > $file
 import 'package:equatable/equatable.dart';
 
@@ -94,9 +95,11 @@ abstract class $stateClassName extends Equatable {
 
 class $initialStateClass extends $stateClassName {}
 EOF
+fi
 
 # Event
 file=$filePath"/"$eventFileName
+if [[ "$ALL" == "true" ||  "$EVENTS" == "true" ]]; then
 cat <<EOF > $file
 import 'package:equatable/equatable.dart';
 
@@ -104,9 +107,11 @@ abstract class $eventClassName extends Equatable {
   $eventClassName();
 }
 EOF
+fi
 
 # Bloc
 file=$filePath"/"$blocName"_bloc.dart"
+if [[ "$ALL" == "true" ||  "$BLOC" == "true" ]]; then
 cat <<EOF > $file
 import 'dart:async';
 import 'package:bloc/bloc.dart';
@@ -120,9 +125,11 @@ class $blocClassName extends Bloc<$eventClassName, $stateClassName> {
   }
 }
 EOF
+fi
 
 # Barrel file
 file=$filePath"/"$barrelFileName
+if [[ "$ALL" == "true" ||  "$BARREL" == "true" ]]; then
 cat <<EOF > $file
 export '$eventFileName';
 export '$stateFileName';
@@ -132,7 +139,7 @@ EOF
 # Write to blocs barrel file
 blocsBarrelFile='lib/blocs/blocs_barrel.dart';
 if [ ! -f blocs_barrel.dart ]; then
-  touch $blocsBarrelFile
+touch $blocsBarrelFile
 fi
 
 oldContent=`cat $blocsBarrelFile`
@@ -140,5 +147,6 @@ cat <<EOF > $blocsBarrelFile
 $oldContent
 export '$blocName/$barrelFileName';
 EOF
+fi
 
 exit
