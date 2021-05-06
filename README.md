@@ -3,27 +3,30 @@
 ### This is used to create **bloc** files for the [flutter_bloc](https://pub.dev/packages/flutter_bloc) package
 
 ## Usage
-### 1. export the script
+#### 1. export the script
 ```bash
 export PATH="$PATH:<path to the package>/flutter_bloc_files/bin"
 ```
 
-### 2. In the root of the project run the following command
+#### 2. In the root of the project run the following command
 ```bash
-flutter_bloc_files login
+flutter_bloc_files login_form
 ```
 
-### 3. Command line parameters
+#### 3. Command line parameters
 ```bash
 -f  | --force       Remove the existing floder and its contents
--a  | --all         Creat all files (bloc, event, states, barrel)
+-a  | --all         Creat all files (bloc, events, states, barrel)
 -bl | --bloc        Create bloc file
--e  | --event       Create event file
--s  | --state       Create stat file
+-e  | --event       Create events file
+-s  | --state       Create states file
 -ba | --barrel      Create barrel file
 ```
 
-### The following file will be created if you run flutter_bloc_files login_form
+### The files will be created if you run the following command
+```bash
+flutter_bloc_files login_form
+```
 ```
 - /login_form
     - login_form_bloc.dart
