@@ -23,7 +23,10 @@ flutter_bloc_files login_form
 -ba | --barrel      Create barrel file
 ```
 
-### The following file will be created if you run flutter_bloc_files login_form
+### The following file will be created if you run the following command
+```bash
+flutter_bloc_files login_form
+```
 ```
 - /login_form
     - login_form_bloc.dart
