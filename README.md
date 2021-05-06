@@ -57,6 +57,8 @@ class LoginFormBloc extends Bloc<LoginFormEvent, LoginFormState> {
 import 'package:equatable/equatable.dart';
 
 abstract class LoginFormState extends Equatable {
+  const LoginFormState();
+
   @override
   List<Object> get props => [];
 }
@@ -69,7 +71,7 @@ class LoginFormInitialState extends LoginFormState {}
 import 'package:equatable/equatable.dart';
 
 abstract class LoginFormEvent extends Equatable {
-  LoginFormEvent();
+  const LoginFormEvent();
 }
 ```
 
