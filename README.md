@@ -32,7 +32,7 @@ flutter_bloc_files login
     - login_form_barrel.dart
 - /bloc_barrel.dart (This will be created if there is no bloc_barrel.dart)
 
-**login_form_barrel.dart** will export the login_form_states.dart, login_form_states.dart, login_form_events.dart.
+login_form_barrel.dart will export the login_form_states.dart, login_form_states.dart, login_form_events.dart.
 
-**bloc_barrel.dart** will export login_form_barrel.dart
+bloc_barrel.dart will export login_form_barrel.dart
 ```
