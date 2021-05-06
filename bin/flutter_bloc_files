@@ -98,8 +98,8 @@ if [ ${#IVALID_PARAM[@]} -gt 0 ]; then
     print_input_error
 fi
 
-
-filePath="$PWD/lib/blocs/$blocName"
+workingDir="$PWD/lib/blocs"
+filePath="$workingDir/$blocName"
 
 if [ -d "$filePath" ]; then
   if [ -z "$(ls -A $filePath)" ]; then
@@ -192,8 +192,8 @@ export '$blocFileName';
 EOF
 
 # Write to blocs barrel file
-blocsBarrelFile='lib/blocs/blocs_barrel.dart';
-if [ ! -f blocs_barrel.dart ]; then
+blocsBarrelFile="$workingDir/blocs_barrel.dart";
+if [ ! -f $blocsBarrelFile ]; then
 touch $blocsBarrelFile
 fi
 
