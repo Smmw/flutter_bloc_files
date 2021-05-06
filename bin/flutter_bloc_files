@@ -142,6 +142,8 @@ cat <<EOF > $file
 import 'package:equatable/equatable.dart';
 
 abstract class $stateClassName extends Equatable {
+  const $stateClassName();
+
   @override
   List<Object> get props => [];
 }
@@ -157,7 +159,7 @@ cat <<EOF > $file
 import 'package:equatable/equatable.dart';
 
 abstract class $eventClassName extends Equatable {
-  $eventClassName();
+  const $eventClassName();
 }
 EOF
 fi
@@ -195,11 +197,16 @@ if [ ! -f blocs_barrel.dart ]; then
 touch $blocsBarrelFile
 fi
 
+# Check if the barrel file is already exported
+exportBlocString="export '$blocName/$barrelFileName';"
+if ! grep -Fxq "$exportBlocString" $blocsBarrelFile; then
 oldContent=`cat $blocsBarrelFile`
 cat <<EOF > $blocsBarrelFile
 $oldContent
-export '$blocName/$barrelFileName';
+$exportBlocString
 EOF
+fi
+
 fi
 
 exit
