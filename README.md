@@ -10,7 +10,7 @@ export PATH="$PATH:<path to the package>/flutter_bloc_files/bin"
 
 ### 2. In the root of the project run the following command
 ```bash
-flutter_bloc_files login
+flutter_bloc_files login_form
 ```
 
 ### 3. Command line parameters
