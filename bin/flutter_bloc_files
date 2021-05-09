@@ -160,6 +160,9 @@ import 'package:equatable/equatable.dart';
 
 abstract class $eventClassName extends Equatable {
   const $eventClassName();
+
+  @override
+  List<Object> get props => [];
 }
 EOF
 fi
